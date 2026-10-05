@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Riya weds Ronak | 12 February 2027</title>
+<meta property="og:title" content="Riya weds Ronak">
+<meta property="og:description" content="You are invited. 12 February 2027, Bhamti Faliya, Satem.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Pinyon+Script&family=Noto+Serif+Gujarati:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #FBF4EA;
+    --blush: #F4D6D0;
+    --blush-deep: #E9B9B3;
+    --rose: #B23A5A;
+    --plum: #5B1F34;
+    --marigold: #E39B2F;
+    --leaf: #5F7E58;
+    --ink: #4A2230;
+    --ink-soft: #7A4E5A;
+    --card: rgba(255,255,255,.55);
+
+    --script: "Pinyon Script", "Snell Roundhand", cursive;
+    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --guj: "Noto Serif Gujarati", "Noto Sans Gujarati", serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ivory: #2B1520; --blush: #4A2733; --blush-deep: #5E3340;
+      --rose: #E8809C; --plum: #F3D3DA; --ink: #F6E6DA; --ink-soft: #D9B9BF;
+      --card: rgba(255,255,255,.06);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ivory: #2B1520; --blush: #4A2733; --blush-deep: #5E3340;
+    --rose: #E8809C; --plum: #F3D3DA; --ink: #F6E6DA; --ink-soft: #D9B9BF;
+    --card: rgba(255,255,255,.06);
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.locked { overflow: hidden; height: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+
+  /* ───────── Envelope ───────── */
+  #env {
+    position: fixed; inset: 0; z-index: 50;
+    background:
+      radial-gradient(120% 80% at 50% 0%, #fbe6e1 0%, var(--blush) 60%, var(--blush-deep) 100%);
+    perspective: 1400px;
+    overflow: hidden;
+    transition: opacity .9s ease, transform .9s ease;
+    --tip: 50%;
+  }
+  #env.gone { opacity: 0; transform: scale(1.06); pointer-events: none; }
+  #env.hidden { display: none; }
+  .emboss { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .flapwrap {
+    position: absolute; left: 0; top: 0; width: 100%; height: var(--tip);
+    transform-origin: top center;
+    transition: transform 1.15s cubic-bezier(.6,.05,.25,1);
+    backface-visibility: hidden;
+    filter: drop-shadow(0 10px 10px rgba(91,31,52,.28));
+  }
+  .flap {
+    width: 100%; height: 100%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background:
+      radial-gradient(circle at 20% 30%, rgba(217,88,122,.28) 0 14px, transparent 15px),
+      radial-gradient(circle at 78% 22%, rgba(227,155,47,.32) 0 12px, transparent 13px),
+      radial-gradient(circle at 52% 52%, rgba(95,126,88,.22) 0 16px, transparent 17px),
+      radial-gradient(circle at 36% 70%, rgba(233,138,160,.3) 0 10px, transparent 11px),
+      radial-gradient(circle at 66% 62%, rgba(244,199,161,.5) 0 12px, transparent 13px),
+      linear-gradient(160deg, #fffaf2, #f7e6dc);
+  }
+  #env.open .flapwrap { transform: rotateX(180deg); }
+
+  .seal {
+    position: absolute; left: 50%; top: var(--tip);
+    width: 104px; height: 104px; margin: -52px 0 0 -52px;
+    border: 0; border-radius: 50%; cursor: pointer;
+    background:
+      radial-gradient(circle at 34% 28%, #ffe29a 0%, #e8b04a 40%, #b57a1d 100%);
+    box-shadow: 0 8px 16px rgba(91,31,52,.4), inset 0 2px 3px rgba(255,255,255,.6), inset 0 -4px 8px rgba(120,70,10,.45);
+    font-family: var(--script); font-size: 2.1rem; color: #6b3d08; line-height: 1;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    display: grid; place-items: center;
+    transition: transform .5s ease, opacity .5s ease;
+    animation: sealPulse 2.6s ease-in-out infinite;
+  }
+  .seal::before {
+    content: ""; position: absolute; inset: 7px; border-radius: 50%;
+    border: 1.5px dashed rgba(107,61,8,.55);
+  }
+  @keyframes sealPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+  #env.open .seal { animation: none; transform: scale(1.35) rotate(8deg); opacity: 0; }
+
+  .tap {
+    position: absolute; left: 0; right: 0; bottom: calc(9% + env(safe-area-inset-bottom, 0px));
+    text-align: center; margin: 0;
+    font-style: italic; font-size: 1.25rem; color: var(--plum); letter-spacing: .02em;
+    transition: opacity .4s ease;
+  }
+  .env-names {
+    position: absolute; left: 0; right: 0; top: calc(var(--tip) + 90px);
+    text-align: center; margin: 0; font-family: var(--script);
+    font-size: clamp(2rem, 9vw, 3rem); color: var(--plum);
+    text-shadow: 0 1px 0 rgba(255,255,255,.6);
+    transition: opacity .4s ease;
+  }
+  #env.open .tap, #env.open .env-names { opacity: 0; }
+
+  /* ───────── Music toggle ───────── */
+  #musicBtn {
+    position: fixed; right: 14px; top: calc(env(safe-area-inset-top, 0px) + 14px);
+    z-index: 60; width: 46px; height: 46px; border-radius: 50%;
+    border: 1.5px solid var(--marigold); background: var(--card);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    color: var(--plum); cursor: pointer; display: none; place-items: center;
+  }
+  #musicBtn.show { display: grid; }
+  #musicBtn svg { width: 22px; height: 22px; }
+  #musicBtn .off { display: none; }
+  #musicBtn[aria-pressed="false"] .on { display: none; }
+  #musicBtn[aria-pressed="false"] .off { display: block; }
+
+  #petals { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; }
+
+  /* ───────── Florals ───────── */
+  .cl { position: absolute; width: min(56vw, 280px); aspect-ratio: 1; filter: url(#paint); pointer-events: none; }
+  .cl.tl { top: 0; left: 0; }
+  .cl.tr { top: 0; right: 0; transform: scaleX(-1); }
+  .cl.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+  .cl.br { bottom: 0; right: 0; transform: scale(-1, -1); }
+
+  /* ───────── Sections ───────── */
+  section {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 96px 24px; overflow: hidden;
+  }
+
+  .hero .guj { font-family: var(--guj); font-size: 1.35rem; color: var(--rose); margin: 0; }
+  .hero .blessing { font-style: italic; color: var(--ink-soft); margin: .35rem 0 0; max-width: 26ch; }
+  .hero .guest { margin: 1.4rem 0 0; font-style: italic; color: var(--plum); min-height: 1.6em; }
+  .names { margin: 1.4rem 0 0; font-family: var(--script); color: var(--plum); line-height: 1; }
+  .names .n { display: block; font-size: clamp(4.2rem, 21vw, 7.5rem); }
+  .names .w { display: block; font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--rose); margin: .35rem 0; }
+  .hero .invite-line { margin: 1.6rem 0 0; max-width: 28ch; color: var(--ink-soft); }
+  .scroll-hint { position: absolute; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); left: 50%; margin-left: -12px; color: var(--rose); animation: bob 2s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0);} 50% { transform: translateY(8px);} }
+
+  /* one orchestrated entrance: names write in after the envelope opens */
+  .names .n, .names .w, .hero .guj, .hero .blessing, .hero .guest, .hero .invite-line { opacity: 0; }
+  main.play .hero .guj { animation: rise .9s .1s both; }
+  main.play .hero .blessing { animation: rise .9s .35s both; }
+  main.play .hero .guest { animation: rise .9s .5s both; }
+  main.play .names .n:first-child { animation: rise 1.1s .7s both; }
+  main.play .names .w { animation: rise 1s 1.15s both; }
+  main.play .names .n:last-child { animation: rise 1.1s 1.4s both; }
+  main.play .hero .invite-line { animation: rise 1s 1.9s both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  /* Arch + curtain reveal */
+  .arch-wrap { --w: min(78vw, 330px); }
+  .arch {
+    position: relative; width: var(--w); height: calc(var(--w) * 1.32);
+    border-radius: calc(var(--w) / 2) calc(var(--w) / 2) 0 0;
+    border: 2px solid var(--marigold); outline: 1px solid var(--marigold); outline-offset: 6px;
+    background: radial-gradient(circle at 50% 30%, #fffaf0, #f7e4d8);
+    overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #4A2230;
+  }
+  .arch .day { font-weight: 600; font-size: clamp(5rem, 24vw, 7rem); line-height: .9; color: var(--rose); }
+  .arch .day sup { font-size: .32em; vertical-align: top; position: relative; top: .55em; margin-left: .05em; }
+  .arch .mon { font-size: 1.7rem; margin-top: .4rem; }
+  .arch .dow { font-style: italic; font-size: 1.25rem; color: #7A4E5A; margin-top: .15rem; }
+  .arch .orn { width: 90px; height: 1px; background: var(--marigold); margin: .8rem 0; position: relative; }
+  .arch .orn::after { content: ""; position: absolute; left: 50%; top: -4px; width: 8px; height: 8px; margin-left: -4px; background: var(--marigold); transform: rotate(45deg); }
+
+  .curtain {
+    position: absolute; top: 0; bottom: 0; width: 51%;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.0) 0 14px, rgba(255,255,255,.12) 14px 18px, rgba(0,0,0,.12) 18px 24px),
+      linear-gradient(180deg, #a8335a, #7d1f3f);
+    transition: transform 1.9s cubic-bezier(.65,.02,.2,1);
+    z-index: 2;
+  }
+  .curtain.l { left: 0; border-right: 2px solid var(--marigold); }
+  .curtain.r { right: 0; border-left: 2px solid var(--marigold); }
+  .arch.opened .curtain.l { transform: translateX(-102%); }
+  .arch.opened .curtain.r { transform: translateX(102%); }
+  .curtain-label {
+    position: absolute; inset: 0; z-index: 3; display: grid; place-items: center;
+    font-family: var(--script); font-size: 2.2rem; color: #ffe7a6; pointer-events: none;
+    transition: opacity .6s ease;
+  }
+  .arch.opened .curtain-label { opacity: 0; }
+  .countdown { margin: 2.2rem 0 0; font-style: italic; font-size: 1.3rem; color: var(--ink-soft); }
+  .countdown b { font-style: normal; font-weight: 600; font-size: 1.9rem; color: var(--rose); }
+
+  /* Details */
+  .details { padding-bottom: 230px; }
+  .details h2 { font-family: var(--script); font-weight: 400; font-size: clamp(2.6rem, 12vw, 3.8rem); color: var(--plum); margin: 0 0 1.2rem; line-height: 1.1; }
+  .venue-card {
+    background: var(--card); border: 1px solid var(--marigold); border-radius: 160px 160px 18px 18px;
+    padding: 56px 28px 34px; width: min(88vw, 360px);
+  }
+  .venue-card .vn { font-size: 2.1rem; font-weight: 600; line-height: 1.1; color: var(--plum); margin: 0; }
+  .venue-card .vs { font-style: italic; font-size: 1.4rem; color: var(--rose); margin: .2rem 0 0; }
+  .venue-card .vt { margin: 1rem 0 0; color: var(--ink-soft); }
+  .btns { display: flex; flex-direction: column; gap: 12px; margin-top: 1.8rem; width: min(88vw, 360px); }
+  .btn {
+    display: block; padding: 14px 22px; border-radius: 999px; text-decoration: none;
+    font-family: var(--serif); font-size: 1.15rem; font-weight: 600; text-align: center;
+    border: 1.5px solid var(--rose); color: var(--rose); background: transparent;
+    transition: background .2s ease, color .2s ease;
+  }
+  .btn[hidden] { display: none; }
+  .btn.primary { background: var(--rose); color: #fff; }
+  .btn:hover { background: var(--plum); border-color: var(--plum); color: #fff; }
+  .closing { margin-top: 2.6rem; max-width: 28ch; color: var(--ink-soft); font-style: italic; }
+  .sign { font-family: var(--script); font-size: 2.6rem; color: var(--plum); margin: .4rem 0 0; line-height: 1.1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body class="locked">
+
+<!-- Shared SVG art -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="paint" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+    </filter>
+
+    <symbol id="leaf" viewBox="0 0 100 40">
+      <path d="M0 20C25-6 72-6 100 20 72 46 25 46 0 20Z" fill="#5F7E58"/>
+      <path d="M4 20H94" stroke="#cfe2c4" stroke-width="1.5" opacity=".7"/>
+    </symbol>
+
+    <symbol id="bloom" viewBox="0 0 100 100">
+      <g fill="currentColor">
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(45 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(90 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(135 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(225 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(270 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="24" opacity=".88" transform="rotate(315 50 50)"/>
+      </g>
+      <g fill="#fff" opacity=".28">
+        <ellipse cx="50" cy="34" rx="8" ry="14" transform="rotate(22 50 50)"/>
+        <ellipse cx="50" cy="34" rx="8" ry="14" transform="rotate(112 50 50)"/>
+        <ellipse cx="50" cy="34" rx="8" ry="14" transform="rotate(202 50 50)"/>
+        <ellipse cx="50" cy="34" rx="8" ry="14" transform="rotate(292 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="11" fill="#E39B2F"/>
+      <circle cx="50" cy="50" r="5" fill="#8A4B12"/>
+    </symbol>
+
+    <symbol id="cluster" viewBox="0 0 220 220">
+      <g>
+        <g transform="translate(6 120) rotate(-40)"><use href="#leaf" width="84" height="34"/></g>
+        <g transform="translate(70 4) rotate(35)"><use href="#leaf" width="84" height="34"/></g>
+        <g transform="translate(0 40) rotate(-8)"><use href="#leaf" width="70" height="28"/></g>
+        <g transform="translate(96 60) rotate(55)"><use href="#leaf" width="66" height="26"/></g>
+        <use href="#bloom" x="26" y="30" width="96" height="96" style="color:#D9587A"/>
+        <use href="#bloom" x="112" y="10" width="62" height="62" style="color:#EDAA3A"/>
+        <use href="#bloom" x="8" y="118" width="62" height="62" style="color:#E98AA0"/>
+        <use href="#bloom" x="96" y="96" width="50" height="50" style="color:#F2B896"/>
+        <circle cx="168" cy="92" r="5" fill="#EDAA3A"/>
+        <circle cx="150" cy="150" r="4" fill="#D9587A"/>
+        <circle cx="74" cy="190" r="4" fill="#EDAA3A"/>
+        <circle cx="182" cy="46" r="3.5" fill="#E98AA0"/>
+      </g>
+    </symbol>
+
+    <g id="dmPaths" fill="none" stroke-width="1.3">
+      <path d="M32 6 L58 32 L32 58 L6 32Z"/>
+      <circle cx="32" cy="32" r="9"/>
+      <path d="M32 14C26 22 26 26 32 32 38 26 38 22 32 14ZM32 50C26 42 26 38 32 32 38 38 38 42 32 50Z"/>
+      <path d="M14 32C22 26 26 26 32 32 26 38 22 38 14 32ZM50 32C42 26 38 26 32 32 38 38 42 38 50 32Z"/>
+      <circle cx="0" cy="0" r="4"/><circle cx="64" cy="0" r="4"/><circle cx="0" cy="64" r="4"/><circle cx="64" cy="64" r="4"/>
+    </g>
+    <pattern id="damask" width="64" height="64" patternUnits="userSpaceOnUse">
+      <use href="#dmPaths" stroke="#ffffff" opacity=".85" transform="translate(1.6 1.6)"/>
+      <use href="#dmPaths" stroke="#c98f90" opacity=".65"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- Envelope -->
+<div id="env" role="group" aria-label="Wedding invitation envelope">
+  <svg class="emboss" aria-hidden="true"><rect width="100%" height="100%" fill="url(#damask)"/></svg>
+  <div class="flapwrap"><div class="flap"></div></div>
+  <p class="env-names" id="envNames">Riya &amp; Ronak</p>
+  <button class="seal" id="seal" aria-label="Open the invitation"><span id="monogram">R&amp;R</span></button>
+  <p class="tap">Tap the seal to open</p>
+</div>
+
+<button id="musicBtn" aria-pressed="true" aria-label="Toggle music">
+  <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+  <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+</button>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<main id="main">
+
+  <!-- 1. Names -->
+  <section class="hero">
+    <svg class="cl tl" viewBox="0 0 220 220" aria-hidden="true"><use href="#cluster"/></svg>
+    <svg class="cl tr" viewBox="0 0 220 220" aria-hidden="true"><use href="#cluster"/></svg>
+    <p class="guj">શુભ વિવાહ</p>
+    <p class="blessing">With the blessings of our families</p>
+    <p class="guest" id="guest"></p>
+    <h1 class="names" aria-label="Riya weds Ronak">
+      <span class="n" id="bride">Riya</span>
+      <span class="w">weds</span>
+      <span class="n" id="groom">Ronak</span>
+    </h1>
+    <p class="invite-line">request the pleasure of your company as they begin their life together</p>
+    <svg class="scroll-hint" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </section>
+
+  <!-- 2. Date reveal -->
+  <section class="reveal">
+    <div class="arch-wrap">
+      <div class="arch" id="arch">
+        <div class="curtain l"></div><div class="curtain r"></div>
+        <div class="curtain-label">A special reveal</div>
+        <div class="day" id="dDay"></div>
+        <div class="orn"></div>
+        <div class="mon" id="dMon"></div>
+        <div class="dow" id="dDow"></div>
+      </div>
+    </div>
+    <p class="countdown" id="countdown"></p>
+  </section>
+
+  <!-- 3. Details -->
+  <section class="details">
+    <svg class="cl bl" viewBox="0 0 220 220" aria-hidden="true"><use href="#cluster"/></svg>
+    <svg class="cl br" viewBox="0 0 220 220" aria-hidden="true"><use href="#cluster"/></svg>
+    <h2>Join us</h2>
+    <div class="venue-card">
+      <p class="vn" id="vName"></p>
+      <p class="vs" id="vArea"></p>
+      <p class="vt" id="vTime"></p>
+    </div>
+    <div class="btns">
+      <a class="btn primary" id="calBtn" target="_blank" rel="noopener">Add to calendar</a>
+      <a class="btn" id="mapBtn" target="_blank" rel="noopener">Open in Maps</a>
+      <a class="btn" id="rsvpBtn" target="_blank" rel="noopener" hidden>RSVP on WhatsApp</a>
+    </div>
+    <p class="closing">Your presence will make our celebration complete.</p>
+    <p class="sign" id="sign"></p>
+  </section>
+
+</main>
+
+<script>
+/* ═══════════════ EDIT THIS BLOCK FOR EACH CLIENT ═══════════════ */
+const INVITE = {
+  bride: "Riya",
+  groom: "Ronak",
+  date: "2027-02-12",         // YYYY-MM-DD
+  startTime: "",              // "HH:MM" 24h, e.g. "19:00". Leave empty for all-day.
+  endTime: "",                // optional "HH:MM"
+  timeLabel: "",              // shown on card, e.g. "From 7:00 PM onwards". Empty hides it.
+  venue: "Bhamti Faliya",
+  area: "Satem",
+  whatsapp: "",               // country code + number, digits only, e.g. "919876543210". Empty hides RSVP.
+  rsvpText: "Hi! I'll be attending the wedding of Riya & Ronak."
+};
+/* ═══════════════════════════════════════════════════════════════ */
+
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, "0");
+const ordinal = n => { const s = ["th","st","nd","rd"], v = n % 100; return s[(v - 20) % 10] || s[v] || s[0]; };
+
+/* ---- Fill content ---- */
+(function fill() {
+  const [Y, M, D] = INVITE.date.split("-").map(Number);
+  const d = new Date(Y, M - 1, D);
+  const month = d.toLocaleDateString("en-IN", { month: "long" });
+  const dow = d.toLocaleDateString("en-IN", { weekday: "long" });
+
+  document.title = INVITE.bride + " weds " + INVITE.groom + " | " + D + " " + month + " " + Y;
+  $("bride").textContent = INVITE.bride;
+  $("groom").textContent = INVITE.groom;
+  $("envNames").textContent = INVITE.bride + " & " + INVITE.groom;
+  $("monogram").textContent = INVITE.bride[0] + "&" + INVITE.groom[0];
+  $("sign").textContent = INVITE.bride + " & " + INVITE.groom;
+  $("dDay").innerHTML = D + "<sup>" + ordinal(D) + "</sup>";
+  $("dMon").textContent = month + " " + Y;
+  $("dDow").textContent = dow;
+  $("vName").textContent = INVITE.venue;
+  $("vArea").textContent = INVITE.area;
+  if (INVITE.timeLabel) $("vTime").textContent = INVITE.timeLabel; else $("vTime").remove();
+
+  // Personal greeting: ?guest=Name
+  try {
+    const g = new URLSearchParams(location.search).get("guest");
+    if (g) $("guest").textContent = "Dear " + g.slice(0, 40) + ",";
+  } catch (e) {}
+
+  // Countdown
+  const days = Math.ceil((d - new Date()) / 86400000);
+  $("countdown").innerHTML = days > 0 ? "<b>" + days + "</b> days to go" : (days === 0 ? "Today is the day" : "With love and gratitude");
+
+  // Calendar link
+  const title = encodeURIComponent(INVITE.bride + " weds " + INVITE.groom);
+  const loc = encodeURIComponent(INVITE.venue + ", " + INVITE.area);
+  const ymd = x => x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate());
+  let dates;
+  if (INVITE.startTime) {
+    const [h, m] = INVITE.startTime.split(":").map(Number);
+    const [eh, em] = (INVITE.endTime || pad((h + 4) % 24) + ":" + pad(m)).split(":").map(Number);
+    dates = ymd(d) + "T" + pad(h) + pad(m) + "00/" + ymd(d) + "T" + pad(eh) + pad(em) + "00";
+  } else {
+    const next = new Date(Y, M - 1, D + 1);
+    dates = ymd(d) + "/" + ymd(next);
+  }
+  $("calBtn").href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + title + "&dates=" + dates + "&location=" + loc;
+
+  // Map link
+  $("mapBtn").href = "https://www.google.com/maps/search/?api=1&query=" + loc;
+
+  // RSVP
+  if (INVITE.whatsapp) {
+    $("rsvpBtn").hidden = false;
+    $("rsvpBtn").href = "https://wa.me/" + INVITE.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(INVITE.rsvpText);
+  }
+})();
+
+/* ═══════════════ Flute music (synthesised, original raga-style phrase) ═══════════════ */
+const Flute = (() => {
+  let ctx, master, bus, noiseBuf, running = false, muted = false;
+  const SA = 293.66; // D4
+  const S = { N0: 15/16, S: 1, R: 9/8, G: 5/4, M: 45/32, P: 3/2, D: 5/3, N: 15/8, S2: 2, R2: 9/4 };
+  // [note, beats, glideTime]  (Yaman-flavoured, composed for this template)
+  const phrase = [
+    ["N0",.5],["R",.5],["G",1,.09],["R",.5],["G",.5],["M",1,.1],["G",.5],["R",.5],["S",1.5,.1],[null,.5],
+    ["G",.5],["M",.5],["D",1,.09],["P",.5],["M",.5],["G",1],["R",.5],["G",.5],["S",2,.12],[null,.5],
+    ["M",.5],["D",.5],["N",1,.09],["D",.5],["N",.5],["S2",1.5,.1],["N",.5],["D",.5],["P",1,.1],["M",.5],["G",.5],["R",.5],["S",2.5,.14],[null,1]
+  ];
+  const BEAT = 0.86;
+
+  function setup() {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = 0.0001; master.connect(ctx.destination);
+    bus = ctx.createGain(); bus.gain.value = 1; bus.connect(master);
+    // soft room echo
+    const dl = ctx.createDelay(1); dl.delayTime.value = 0.34;
+    const fb = ctx.createGain(); fb.gain.value = 0.3;
+    const wet = ctx.createGain(); wet.gain.value = 0.32;
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 2400;
+    bus.connect(dl); dl.connect(lp); lp.connect(fb); fb.connect(dl); lp.connect(wet); wet.connect(master);
+    // breath noise buffer
+    noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+    const ch = noiseBuf.getChannelData(0);
+    for (let i = 0; i < ch.length; i++) ch[i] = Math.random() * 2 - 1;
+    drone();
+    return true;
+  }
+
+  function drone() {
+    const g = ctx.createGain(); g.gain.value = 0.045; g.connect(bus);
+    [SA / 2, SA * 0.75, SA].forEach((f, i) => {
+      const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = f;
+      const og = ctx.createGain(); og.gain.value = i === 2 ? 0.4 : 1;
+      o.connect(og); og.connect(g); o.start();
+    });
+    const lfo = ctx.createOscillator(); lfo.frequency.value = 0.18;
+    const lg = ctx.createGain(); lg.gain.value = 0.015;
+    lfo.connect(lg); lg.connect(g.gain); lfo.start();
+  }
+
+  function playPhrase(t0) {
+    const osc = ctx.createOscillator(); osc.type = "sine";
+    const osc2 = ctx.createOscillator(); osc2.type = "sine";
+    const h2 = ctx.createGain(); h2.gain.value = 0.14;
+    const osc3 = ctx.createOscillator(); osc3.type = "sine";
+    const h3 = ctx.createGain(); h3.gain.value = 0.04;
+    const lfo = ctx.createOscillator(); lfo.frequency.value = 5.3;
+    const lfoG = ctx.createGain(); lfoG.gain.value = 0;
+    lfo.connect(lfoG); lfoG.connect(osc.detune); lfoG.connect(osc2.detune); lfoG.connect(osc3.detune);
+
+    const tone = ctx.createGain(); tone.gain.value = 0;
+    const lpf = ctx.createBiquadFilter(); lpf.type = "lowpass"; lpf.frequency.value = 3600;
+    osc.connect(tone); osc2.connect(h2); h2.connect(tone); osc3.connect(h3); h3.connect(tone);
+
+    const nz = ctx.createBufferSource(); nz.buffer = noiseBuf; nz.loop = true;
+    const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 2200; bp.Q.value = 0.7;
+    const ng = ctx.createGain(); ng.gain.value = 0.05;
+    nz.connect(bp); bp.connect(ng); ng.connect(tone);
+
+    tone.connect(lpf); lpf.connect(bus);
+
+    let t = t0, first = true;
+    for (const [key, beats, glide] of phrase) {
+      const dur = beats * BEAT;
+      if (key) {
+        const f = SA * 2 * S[key]; // flute register: one octave above reference
+        if (first) {
+          [osc, osc2, osc3].forEach((o, i) => o.frequency.setValueAtTime(f * (i + 1), t));
+          first = false;
+        } else {
+          const tc = glide || 0.035;
+          [osc, osc2, osc3].forEach((o, i) => o.frequency.setTargetAtTime(f * (i + 1), t - 0.02, tc));
+        }
+        tone.gain.setTargetAtTime(0.2, t, 0.05);
+        tone.gain.setTargetAtTime(0.13, t + dur * 0.55, 0.12);
+        lfoG.gain.setTargetAtTime(14, t + 0.25, 0.25);
+        tone.gain.setTargetAtTime(0.045, t + dur - 0.07, 0.03);
+      } else {
+        tone.gain.setTargetAtTime(0.0001, t, 0.09);
+        lfoG.gain.setTargetAtTime(0, t, 0.05);
+      }
+      t += dur;
+    }
+    tone.gain.setTargetAtTime(0.0001, t, 0.1);
+    [osc, osc2, osc3, lfo, nz].forEach(n => n.start(t0));
+    [osc, osc2, osc3, lfo, nz].forEach(n => n.stop(t + 1));
+    return t;
+  }
+
+  function loop(t) {
+    if (!running) return;
+    const end = playPhrase(t);
+    const wait = Math.max(500, (end - ctx.currentTime - 1.2) * 1000);
+    setTimeout(() => loop(end), wait);
+  }
+
+  function applyGain() {
+    if (!master) return;
+    const hidden = document.hidden;
+    master.gain.setTargetAtTime(muted || hidden ? 0.0001 : 0.85, ctx.currentTime, 0.4);
+  }
+
+  document.addEventListener("visibilitychange", applyGain);
+
+  return {
+    start() {
+      try {
+        if (!ctx && !setup()) return false;
+        if (ctx.state === "suspended") ctx.resume();
+        if (!running) { running = true; loop(ctx.currentTime + 0.3); }
+        muted = false; applyGain();
+        return true;
+      } catch (e) { return false; }
+    },
+    toggle() { muted = !muted; applyGain(); return !muted; },
+    get ready() { return !!ctx; }
+  };
+})();
+
+/* ═══════════════ Falling petals ═══════════════ */
+const Petals = (() => {
+  const cv = $("petals"), c = cv.getContext("2d");
+  const cols = ["#E98AA0", "#D9587A", "#EDAA3A", "#F4C7A1", "#F7B7C4"];
+  let W, H, list = [], raf = null, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function size() { W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; c.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function make(initial) {
+    return { x: Math.random() * W, y: initial ? Math.random() * H : -20, r: 4 + Math.random() * 6,
+      vy: 0.5 + Math.random() * 0.9, ph: Math.random() * 6.28, sw: 0.4 + Math.random() * 0.9,
+      rot: Math.random() * 6.28, vr: (Math.random() - .5) * 0.04, col: cols[(Math.random() * cols.length) | 0] };
+  }
+  function tick() {
+    c.clearRect(0, 0, W, H);
+    for (const p of list) {
+      p.y += p.vy; p.ph += 0.02; p.x += Math.sin(p.ph) * p.sw; p.rot += p.vr;
+      if (p.y > H + 20) Object.assign(p, make(false));
+      c.save(); c.translate(p.x, p.y); c.rotate(p.rot);
+      c.fillStyle = p.col; c.globalAlpha = 0.85;
+      c.beginPath(); c.ellipse(0, 0, p.r * 0.55, p.r, 0, 0, 6.283); c.fill();
+      c.restore();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  return {
+    start() {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches || raf) return;
+      size(); list = Array.from({ length: 26 }, () => make(true)); tick();
+      addEventListener("resize", size);
+    }
+  };
+})();
+
+/* ═══════════════ Open sequence ═══════════════ */
+const env = $("env"), seal = $("seal"), main = $("main"), musicBtn = $("musicBtn");
+let opened = false;
+function openInvite() {
+  if (opened) return; opened = true;
+  const ok = Flute.start();
+  env.classList.add("open");
+  setTimeout(() => {
+    env.classList.add("gone");
+    main.classList.add("play");
+    document.body.classList.remove("locked");
+    window.scrollTo(0, 0);
+    Petals.start();
+    if (ok) { musicBtn.classList.add("show"); }
+  }, 1150);
+  setTimeout(() => env.classList.add("hidden"), 2100);
+}
+seal.addEventListener("click", e => { e.stopPropagation(); openInvite(); });
+env.addEventListener("click", openInvite);
+
+musicBtn.addEventListener("click", () => {
+  const on = Flute.toggle();
+  musicBtn.setAttribute("aria-pressed", String(on));
+});
+
+/* Curtain reveal when the arch scrolls into view */
+const arch = $("arch");
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver((es, ob) => {
+    es.forEach(e => { if (e.isIntersecting) { setTimeout(() => arch.classList.add("opened"), 450); ob.disconnect(); } });
+  }, { threshold: 0.6 }).observe(arch);
+} else { arch.classList.add("opened"); }
+</script>
+</body>
+</html>
